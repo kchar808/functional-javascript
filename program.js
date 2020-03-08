@@ -14,8 +14,14 @@
 
 // module.exports = repeat;
 
-module.exports = function doubleAll(numbers) {
-  var result = [];
-  result = numbers.map(numbers => numbers * 2);
-  return result;
+// module.exports = function doubleAll(numbers) {
+//   var result = [];
+//   result = numbers.map(numbers => numbers * 2);
+//   return result;
+// };
+
+module.exports = function getShortMessages(messages) {
+  return messages.map(msg => msg.message).filter(msg => msg.length < 50);
+  // Arrow functions!
 };
+
