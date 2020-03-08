@@ -25,12 +25,23 @@
 //   // Arrow functions!
 // };
 
-module.exports = function checkUsersValid(goodUsers) {
-  return function allUsersValid(submittedUsers) {
-    return submittedUsers.every(function(submittedUser) {
-      return goodUsers.some(function(goodUser) {
-        return submittedUser.id === goodUser.id
-      });
-    });
-  };
+// module.exports = function checkUsersValid(goodUsers) {
+//   return function allUsersValid(submittedUsers) {
+//     return submittedUsers.every(function(submittedUser) {
+//       return goodUsers.some(function(goodUser) {
+//         return submittedUser.id === goodUser.id
+//       });
+//     });
+//   };
+// };
+
+module.exports = function countWords(inputWords) {
+  return inputWords.reduce(function (previousVal, currVal) {
+    if (previousVal[currVal]) {
+      previousVal[currVal]++;
+    } else {
+      previousVal[currVal] = 1;
+    }
+    return previousVal;
+  }, {});
 };
