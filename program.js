@@ -20,8 +20,17 @@
 //   return result;
 // };
 
-module.exports = function getShortMessages(messages) {
-  return messages.map(msg => msg.message).filter(msg => msg.length < 50);
-  // Arrow functions!
-};
+// module.exports = function getShortMessages(messages) {
+//   return messages.map(msg => msg.message).filter(msg => msg.length < 50);
+//   // Arrow functions!
+// };
 
+module.exports = function checkUsersValid(goodUsers) {
+  return function allUsersValid(submittedUsers) {
+    return submittedUsers.every(function(submittedUser) {
+      return goodUsers.some(function(goodUser) {
+        return submittedUser.id === goodUser.id
+      });
+    });
+  };
+};
